@@ -1,6 +1,6 @@
 class BinaryMultipleOfThree:
     def create_regex(self):
-        return ""
+        return r'\b[01]+\b'
     
     def is_multiple_of_three(self, binary_str):
-        return False
+        return len(binary_str) % 3 == 0
