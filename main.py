@@ -21,8 +21,22 @@ class BinaryMultipleOfThree:
         multiples = self.find_multiples_of_three(text)
         print("Найдено чисел: " + str(len(all_binary)))
         return multiples
+    
+    def analyze_file(self, filename):
+        with open(filename, 'r') as file:
+            content = file.read()
+        return self.analyze_text(content)
+
+print("1 - ввести текст")
+print("2 - загрузить файл")
+choice = input("Выбор: ")
 
 validator = BinaryMultipleOfThree()
-text = input("Введите текст: ")
-result = validator.analyze_text(text)
-print("Результат: " + str(result))
+if choice == "1":
+    text = input("Введите текст: ")
+    result = validator.analyze_text(text)
+elif choice == "2":
+    filename = input("Введите имя файла: ")
+    result = validator.analyze_file(filename)
+else:
+    print("Неверный выбор")
