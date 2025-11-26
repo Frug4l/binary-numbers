@@ -11,3 +11,7 @@ class BinaryMultipleOfThree:
     def find_binary_numbers(self, text):
         pattern = self.create_regex()
         return re.findall(pattern, text)
+    
+    def find_multiples_of_three(self, text):
+        binary_numbers = self.find_binary_numbers(text)
+        return [num for num in binary_numbers if self.is_multiple_of_three(num)]
