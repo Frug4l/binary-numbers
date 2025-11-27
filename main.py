@@ -20,12 +20,19 @@ class BinaryMultipleOfThree:
         all_binary = self.find_binary_numbers(text)
         multiples = self.find_multiples_of_three(text)
         print("Найдено чисел: " + str(len(all_binary)))
+        print("Все числа: " + str(all_binary))
+        print("Кратные 3: " + str(multiples))
         return multiples
     
     def analyze_file(self, filename):
-        with open(filename, 'r') as file:
-            content = file.read()
-        return self.analyze_text(content)
+        try:
+            with open(filename, 'r') as file:
+                content = file.read()
+            print("Файл загружен: " + filename)
+            return self.analyze_text(content)
+        except:
+            print("Ошибка: файл не найден")
+            return None
 
 print("1 - ввести текст")
 print("2 - загрузить файл")
