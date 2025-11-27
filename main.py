@@ -19,9 +19,16 @@ class BinaryMultipleOfThree:
     def analyze_text(self, text):
         all_binary = self.find_binary_numbers(text)
         multiples = self.find_multiples_of_three(text)
-        print("Найдено чисел: " + str(len(all_binary)))
-        print("Все числа: " + str(all_binary))
+        print("Найдено двоичных чисел: " + str(len(all_binary)))
+        print("Все двоичные числа: " + str(all_binary))
         print("Кратные 3: " + str(multiples))
+        
+        if multiples:
+            print("\nДетальная проверка:")
+            for num in multiples:
+                decimal = int(num, 2)
+                print(num + " (двоичное) = " + str(decimal) + " (десятичное)")
+        
         return multiples
     
     def analyze_file(self, filename):
@@ -34,6 +41,7 @@ class BinaryMultipleOfThree:
             print("Ошибка: файл не найден")
             return None
 
+print("=== Поиск двоичных чисел кратных 3 ===")
 print("1 - ввести текст")
 print("2 - загрузить файл")
 choice = input("Выбор: ")
