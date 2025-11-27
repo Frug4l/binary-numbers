@@ -40,18 +40,42 @@ class BinaryMultipleOfThree:
         except:
             print("Ошибка: файл не найден")
             return None
+    
+    def process_user_input(self):
+        print("=== Поиск двоичных чисел кратных 3 ===")
+        print("1 - ввести текст")
+        print("2 - загрузить файл")
+        
+        choice = input("Выбор (1-2): ")
+        
+        if choice == "1":
+            text = input("Введите текст: ")
+            return self.analyze_text(text)
+        elif choice == "2":
+            filename = input("Введите имя файла: ")
+            return self.analyze_file(filename)
+        else:
+            print("Неверный выбор!")
+            return None
 
-print("=== Поиск двоичных чисел кратных 3 ===")
-print("1 - ввести текст")
-print("2 - загрузить файл")
-choice = input("Выбор: ")
+def main():
+    validator = BinaryMultipleOfThree()
+    
+    while True:
+        print("\n" + "="*40)
+        print("Главное меню:")
+        print("1 - Запустить программу")
+        print("2 - Выход")
+        
+        choice = input("Ваш выбор (1-2): ")
+        
+        if choice == "1":
+            result = validator.process_user_input()
+        elif choice == "2":
+            print("Выход из программы...")
+            break
+        else:
+            print("Неверный выбор!")
 
-validator = BinaryMultipleOfThree()
-if choice == "1":
-    text = input("Введите текст: ")
-    result = validator.analyze_text(text)
-elif choice == "2":
-    filename = input("Введите имя файла: ")
-    result = validator.analyze_file(filename)
-else:
-    print("Неверный выбор")
+if __name__ == "__main__":
+    main()
